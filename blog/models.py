@@ -17,9 +17,11 @@ class Post(models.Model):
     status = models.IntegerField(choices=STATUS, default=0)
     excerpt = models.TextField(max_length=500, blank=True)
     updated_on = models.DateTimeField(auto_now=True)
+    
     class Meta:
         # - prefix to created_on tells programme to display in descending order
         ordering = ["-created_on"]
+
     def __str__(self):
         return f"{self.title} | written by {self.author}"
 
@@ -32,4 +34,11 @@ class Comment(models.Model):
     body = models.TextField(blank=False)
     approved = models.BooleanField(default=False)
     created_on = models.DateTimeField(auto_now_add=True)
+    
+
+    class Meta:
+        ordering = ["created_on"]
+
+    def __str__(self):
+        return f"Comment: {self.post} by {self.author}"
 

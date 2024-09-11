@@ -15,6 +15,8 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+# adding 'include' to imports allows us to import and use other urls.py 
+# files for each app. Defines prokect-level URL structure.
 from django.urls import path, include
 
 

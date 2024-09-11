@@ -21,6 +21,8 @@ from django.urls import path, include
 
 
 urlpatterns = [
-    path("", include("blog.urls"), name="blog-urls"),
+    # url paths are in alphabetcal order with "" last
     path('admin/', admin.site.urls),
+    path('summernote/', include('django_summernote.urls')),
+    path("", include("blog.urls"), name="blog-urls"),
 ]
